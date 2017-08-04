@@ -47,7 +47,7 @@ router.post('/join', function(req, res, next){
 	var check = {
 		code : code
 	};
-	res.json(data);
+	// res.json(data);
 	var user = new UserModel(data);
 	user.save(function(err, doc){
 		if(err){
