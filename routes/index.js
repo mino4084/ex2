@@ -54,7 +54,9 @@ router.post('/join', function(req, res, next){
 			code = 0;
 			return next(err);
 		}
-		code = 1;
+		else{
+			code = 1;
+		}
 		console.log('doc =', doc);
 		res.json(check);
 	});
