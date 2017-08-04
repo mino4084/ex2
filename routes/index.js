@@ -36,6 +36,7 @@ router.post('/join', function(req, res, next){
 	var user_token = req.body.token;
 	var user_uuid = req.body.uuid;
 	var user_nick = req.body.nick;
+	var code = 0
 	var data = {
 		user_id : user_id,
 		user_pw : user_pw,
@@ -43,12 +44,19 @@ router.post('/join', function(req, res, next){
 		user_uuid : user_uuid,
 		user_nick : user_nick
 	};
+	var check = {
+		code : code
+	};
 	res.json(data);
 	var user = new UserModel(data);
 	user.save(function(err, doc){
-		if(err) return next(err);
+		if(err){
+			code = 0;
+			return next(err);
+		}
+		code = 1;
 		console.log('doc =', doc);
-		res.redirect('/login');
+		res.json(check);
 	});
 	/*res.json(data, function(err){
 		if(err){
