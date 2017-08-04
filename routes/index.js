@@ -51,11 +51,11 @@ router.post('/join', function(req, res, next){
 	var user = new UserModel(data);
 	user.save(function(err, doc){
 		if(err){
-			code = 0;
+			check.code = 0;
 			return next(err);
 		}
 		else{
-			code = 1;
+			check.code = 1;
 		}
 		console.log('doc =', doc);
 		res.json(check);
