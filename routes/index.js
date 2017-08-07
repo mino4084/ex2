@@ -50,14 +50,14 @@ router.post('/join', function(req, res, next){
 	// res.json(data);
 	var user = new UserModel(data);
 	user.save(function(err, doc){
-		if(err){
+		/*if(err){
 			check.code = 0;
 			return next(err);
 		}
 		else{
 			check.code = 1;
 		}
-		console.log('doc =', doc);
+		console.log('doc =', doc);*/
 		res.json(check);
 	});
 	/*res.json(data, function(err){
